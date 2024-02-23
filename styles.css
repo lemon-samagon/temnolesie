@@ -21,10 +21,35 @@ a{
     border-radius: 9px;
     padding: 10px;
 }
+
+.text{
+    margin-bottom: 5px;
+}
+
+.navbar{
+    padding: 5px;
+}
+
+.actions{
+    padding: 5px;
+}
+
+.profile{
+    padding: 5px;
+}
+
+.audit{
+    padding: 5px;
+}
+
+.log{
+    padding: 10px;
+}
+
 .action{
     padding: 10px;
-    margin-bottom: 10px;
 }
+
 .link{
     float: right;
 }
