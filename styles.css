@@ -1,6 +1,6 @@
 body{
     background-color: black;
-    color: white
+    color: white;
 }
 
 *{
@@ -17,46 +17,22 @@ a{
     position: relative;
     margin: auto;
     width: 500px;
-    background-color: rgb(8, 8, 8)
+    background-color: rgb(8, 8, 8);
+    border-radius: 9px;
+    padding: 10px;
 }
-
-.navbar{
-    margin: 10px;
-    padding: 5px;
-}
-
-.navbar .label{
-    margin-left: 5px;
-}
-
-.navbar .link{
-    float: right;
-    margin-right: 15px;
-}
-
-.text{
-    margin: 0;
-}
-
-.actions{
-    margin: 15px;
-    padding: 5px;
-}
-
 .action{
-    margin-bottom: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
-
-.action .name{
-    float: left;
-}
-
-.action .price{
+.link{
     float: right;
-    color: rgb(0, 190, 0);
 }
-
-.action .price-down{
+.price{
     float: right;
-    color: rgb(190, 0, 0);
+    color: rgb(0, 255, 0);
+}
+.price-down{
+    float: right;
+    color: red;
 }
