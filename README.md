@@ -1,1 +1,2 @@
-# Temnolesie\nSpecial for DNC minecraft server
+# Temnolesie
+Special for DNC minecraft server
