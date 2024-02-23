@@ -15,12 +15,8 @@ a{
 
 .container{
     position: relative;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
+    margin: auto;
     width: 500px;
-    border: 1 solid white;
-    border-radius: 9px;
     background-color: rgb(8, 8, 8)
 }
 
