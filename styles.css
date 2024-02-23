@@ -1,0 +1,66 @@
+body{
+    background-color: black;
+    color: white
+}
+
+*{
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.container{
+    position: relative;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 500px;
+    border: 1 solid white;
+    border-radius: 9px;
+    background-color: rgb(8, 8, 8)
+}
+
+.navbar{
+    margin: 10px;
+    padding: 5px;
+}
+
+.navbar .label{
+    margin-left: 5px;
+}
+
+.navbar .link{
+    float: right;
+    margin-right: 15px;
+}
+
+.text{
+    margin: 0;
+}
+
+.actions{
+    margin: 15px;
+    padding: 5px;
+}
+
+.action{
+    margin-bottom: 5px;
+}
+
+.action .name{
+    float: left;
+}
+
+.action .price{
+    float: right;
+    color: rgb(0, 190, 0);
+}
+
+.action .price-down{
+    float: right;
+    color: rgb(190, 0, 0);
+}
