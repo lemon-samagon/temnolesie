@@ -1,0 +1,31 @@
+*{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+html, body{
+    margin:0;
+    padding:0;
+}
+a{
+    color: black;
+    text-decoration-line: none;
+    margin: 0   ;
+}
+.client{
+    text-align: center;
+    padding: 20px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.panel_label{
+    text-align: center;
+    text-decoration-line: none;
+    background-color: rgb(242, 234, 216);
+    margin-top: -20px;   
+    height: 145px;
+}
