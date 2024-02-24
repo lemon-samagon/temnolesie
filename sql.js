@@ -13,6 +13,7 @@ class UserSQL{
     }
     
     static async getUser(nickname){
+        console.log("Getting " + nickname + " from database")
         const result = await pool.query("SELECT * FROM users WHERE nickname='" + nickname + "'")
         return result
     }
@@ -20,11 +21,12 @@ class UserSQL{
     static async registerUser(nickname, password){
         const data = await this.getUser( nickname )
         console.log(data)
-        if(data != [] || data != null){
-            return false
+        console.log(data[0].length)
+        if(data[0].length == 0){ // fucking bycicle
+            const result = await pool.query("INSERT INTO users (nickname, password, money) VALUES('" + nickname + "','" + password + "', 0)")
+            return true
         }
-        const result = await pool.query("INSERT INTO users (nickname, password, money) VALUES('" + nickname + "','" + password + "', 0)")
-        return true
+        return false
     }
 
     static async updateUser(nickname, key, value){

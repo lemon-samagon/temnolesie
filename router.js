@@ -15,7 +15,7 @@ router.get("/profile", async (req, res) => {
         let data = await sql.getUser( req.cookies.loggedin.nickname )
         console.log(req.cookies.loggedin.nickname)
         console.log(data)
-        res.render("profile.ejs", { nickname: req.cookies.loggedin.nickname })
+        res.render("profile.ejs", { nickname: req.cookies.loggedin.nickname, money: data[0][0].money })
     }else{
         res.redirect("/login")
     }
@@ -25,7 +25,27 @@ router.get("/login", (req, res) => {
     if(req.cookies.loggedin != null){
         res.redirect("/profile")
     }else{
+        res.render("login.ejs", {login_text: "Войти", error_message: ""})
+    }
+})
+
+router.post("/login", async (req, res) => {
+    if (req.body == null) {
         res.render("login.ejs", {login_text: "Войти"})
+    }else{
+        const data = await sql.getUser(req.body.nickname)
+        console.log(data[0].length)
+        console.log(data[0])
+        if(data[0][0]){
+            if(data[0][0].nickname == req.body.nickname && data[0][0].password == req.body.password){ 
+                res.cookie("loggedin", req.body)
+                res.redirect("/")
+            }else{
+                res.render("login.ejs", {login_text: "Войти", error_message: "Неверный пароль!"})    
+            }
+        }else{
+            res.render("login.ejs", {login_text: "Войти", error_message: "Такого аккаунта не существует!"})
+        }
     }
 })
 
@@ -33,29 +53,21 @@ router.get("/register", (req, res) => {
     if(req.cookies.loggedin != null){
         res.redirect("/profile")
     }else{
-        res.render("register.ejs", {login_text: "Войти"})
+        res.render("register.ejs", {login_text: "Войти", error_message: ""})
     }
 })
 
-router.post("/api/login", (req, res) => {
-    if (req.body == null) {
-        res.redirect("/login")
-    }else{
-        if(sql.getUser(req.body.nickname)){
-            res.cookie("loggedin", req.body)
-        }
-        res.redirect("/")
-    }
-})
-
-router.post("/api/register", async (req, res) => {
+router.post("/register", async (req, res) => {
     if (req.body == null){
-        res.redirect("/register")
+        res.render("register.ejs", {login_text: "Войти", error_message: ""})
     }else{
-        if(await sql.registerUser(req.body.nickname, req.body.password)){
+        let canBeRegistered = await sql.registerUser(req.body.nickname, req.body.password)
+        if (canBeRegistered) {
             res.cookie("loggedin", req.body)
+            res.redirect("/")
+        }else{
+            res.render("register.ejs", {login_text: "Войти", error_message: "Такой аккаунт уже существует!"})
         }
-        res.redirect("/")
     }
 })
 

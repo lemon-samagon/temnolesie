@@ -80,3 +80,7 @@ form{
     float: right;
     color: red;
 }
+
+.error{
+    color: red;
+}
